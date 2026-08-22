@@ -1,0 +1,18 @@
+{
+  "lessonId": "physics-vector",
+  "title": "Vectors — Definitions & Products",
+  "subject": "Physics",
+  "author": "Dr. Kamal Hossain",
+  "cards": [
+    { "id": "pv01", "front": "What distinguishes a vector from a scalar?", "back": "A vector has both magnitude and direction and adds by the triangle law; a scalar has magnitude only.", "tags": ["Definition"] },
+    { "id": "pv02", "front": "Write the dot product of A and B.", "back": "A · B = AB cos θ — a scalar.", "hint": "cos of the included angle", "tags": ["Formula"] },
+    { "id": "pv03", "front": "Write the cross product of A and B.", "back": "A × B = AB sin θ n̂ — a vector normal to both.", "note": "Direction follows the right-hand rule, so A × B = −(B × A).", "tags": ["Formula"] },
+    { "id": "pv04", "front": "What is the magnitude of the resultant of two vectors P and Q at angle θ?", "back": "R = √(P² + Q² + 2PQ cos θ)", "tags": ["Formula"] },
+    { "id": "pv05", "front": "When are two non-zero vectors perpendicular?", "back": "When their dot product is zero.", "tags": ["Condition"] },
+    { "id": "pv06", "front": "When are two non-zero vectors parallel?", "back": "When their cross product is the null vector.", "tags": ["Condition"] },
+    { "id": "pv07", "front": "How do you find the unit vector along A?", "back": "Â = A / |A| — divide the vector by its own magnitude.", "tags": ["Definition"] },
+    { "id": "pv08", "front": "What is the magnitude of a vector with components (3, 4, 12)?", "back": "13 — √(9 + 16 + 144) = √169.", "hint": "Pythagoras in three dimensions", "tags": ["Problem"] },
+    { "id": "pv09", "front": "What does the scalar triple product A · (B × C) represent geometrically?", "back": "The volume of the parallelepiped formed by the three vectors. It is zero when they are coplanar.", "tags": ["Concept"] },
+    { "id": "pv10", "front": "Is work a scalar or a vector, and why?", "back": "A scalar — it is the dot product of force and displacement, W = F · d.", "tags": ["Application"] }
+  ]
+}

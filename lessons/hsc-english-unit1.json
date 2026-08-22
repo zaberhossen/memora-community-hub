@@ -1,0 +1,18 @@
+{
+  "lessonId": "hsc-english-unit1",
+  "title": "English for Today — Unit 1 Vocabulary",
+  "subject": "English",
+  "author": "Nusrat Jahan",
+  "cards": [
+    { "id": "eu01", "front": "apartheid", "back": "A former official policy of racial segregation in South Africa.", "hint": "Afrikaans for \"apartness\"", "tags": ["Vocabulary"] },
+    { "id": "eu02", "front": "incarceration", "back": "Imprisonment; being confined in a jail.", "tags": ["Vocabulary"] },
+    { "id": "eu03", "front": "emancipation", "back": "The act of setting someone free from legal, political, or social restrictions.", "tags": ["Vocabulary"] },
+    { "id": "eu04", "front": "perseverance", "back": "Continued effort towards a goal despite difficulty or delay.", "tags": ["Vocabulary"] },
+    { "id": "eu05", "front": "inaugurate", "back": "To admit someone formally to office, or to begin something officially.", "note": "Noun form: inauguration.", "tags": ["Vocabulary"] },
+    { "id": "eu06", "front": "Who was inaugurated as the first Black president of South Africa in 1994?", "back": "Nelson Mandela.", "tags": ["Comprehension"] },
+    { "id": "eu07", "front": "How many years did Nelson Mandela spend in prison?", "back": "27 years — most of them on Robben Island.", "tags": ["Comprehension"] },
+    { "id": "eu08", "front": "Which prize did Mandela share in 1993, and with whom?", "back": "The Nobel Peace Prize, shared with F. W. de Klerk.", "tags": ["Comprehension"] },
+    { "id": "eu09", "front": "Fill in: He was released ___ prison in 1990.", "back": "from", "tags": ["Grammar"] },
+    { "id": "eu10", "front": "Fill in: The nation paid tribute ___ his sacrifice.", "back": "to", "hint": "\"tribute\" takes a fixed preposition", "tags": ["Grammar"] }
+  ]
+}
