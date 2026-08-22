@@ -3,6 +3,36 @@
   "updatedAt": "2026-08-22",
   "lessons": [
     {
+      "lessonId": "biology-cell-division",
+      "title": "কোষ বিভাজন — মাইটোসিস ও মিয়োসিস",
+      "subject": "Biology",
+      "author": "Tanvir Ahmed",
+      "cardCount": 8,
+      "description": "কোষচক্রের ধাপ, মাইটোসিস ও মিয়োসিসের পার্থক্য এবং মনে রাখার মতো সংখ্যাগুলো।",
+      "tags": ["HSC", "Admission", "Chapter-2"],
+      "url": "https://raw.githubusercontent.com/zaberhossen/memora-community-hub/main/lessons/biology-cell-division.json"
+    },
+    {
+      "lessonId": "chemistry-mole-concept",
+      "title": "মোল ধারণা ও রাসায়নিক গণনা",
+      "subject": "Chemistry",
+      "author": "Sadia Rahman",
+      "cardCount": 8,
+      "description": "অ্যাভোগেড্রো সংখ্যা, মোলার আয়তন, মোলারিটি ও শতকরা ফলনের হিসাব।",
+      "tags": ["HSC", "Admission", "Formula"],
+      "url": "https://raw.githubusercontent.com/zaberhossen/memora-community-hub/main/lessons/chemistry-mole-concept.json"
+    },
+    {
+      "lessonId": "gk-bangladesh-liberation-war",
+      "title": "মুক্তিযুদ্ধ ১৯৭১ — সাধারণ জ্ঞান",
+      "subject": "General Knowledge",
+      "author": "Memora Community",
+      "cardCount": 8,
+      "description": "সেক্টর, তারিখ ও ব্যক্তি — চাকরির পরীক্ষা ও বিসিএস প্রস্তুতির জন্য।",
+      "tags": ["Job Prep", "BCS", "Bangladesh"],
+      "url": "https://raw.githubusercontent.com/zaberhossen/memora-community-hub/main/lessons/gk-bangladesh-liberation-war.json"
+    },
+    {
       "lessonId": "hsc-bangla-01",
       "title": "অপরিচিতা — রবীন্দ্রনাথ ঠাকুর",
       "subject": "Bangla",
@@ -31,36 +61,6 @@
       "description": "Dot and cross products, resultants, and the conditions worth memorising before an admission test.",
       "tags": ["HSC", "Admission", "Formula"],
       "url": "https://raw.githubusercontent.com/zaberhossen/memora-community-hub/main/lessons/physics-vector.json"
-    },
-    {
-      "lessonId": "chemistry-mole-concept",
-      "title": "মোল ধারণা ও রাসায়নিক গণনা",
-      "subject": "Chemistry",
-      "author": "Sadia Rahman",
-      "cardCount": 8,
-      "description": "অ্যাভোগেড্রো সংখ্যা, মোলার আয়তন, মোলারিটি ও শতকরা ফলনের হিসাব।",
-      "tags": ["HSC", "Admission", "Formula"],
-      "url": "https://raw.githubusercontent.com/zaberhossen/memora-community-hub/main/lessons/chemistry-mole-concept.json"
-    },
-    {
-      "lessonId": "biology-cell-division",
-      "title": "কোষ বিভাজন — মাইটোসিস ও মিয়োসিস",
-      "subject": "Biology",
-      "author": "Tanvir Ahmed",
-      "cardCount": 8,
-      "description": "কোষচক্রের ধাপ, মাইটোসিস ও মিয়োসিসের পার্থক্য এবং মনে রাখার মতো সংখ্যাগুলো।",
-      "tags": ["HSC", "Admission", "Chapter-2"],
-      "url": "https://raw.githubusercontent.com/zaberhossen/memora-community-hub/main/lessons/biology-cell-division.json"
-    },
-    {
-      "lessonId": "gk-bangladesh-liberation-war",
-      "title": "মুক্তিযুদ্ধ ১৯৭১ — সাধারণ জ্ঞান",
-      "subject": "General Knowledge",
-      "author": "Memora Community",
-      "cardCount": 8,
-      "description": "সেক্টর, তারিখ ও ব্যক্তি — চাকরির পরীক্ষা ও বিসিএস প্রস্তুতির জন্য।",
-      "tags": ["Job Prep", "BCS", "Bangladesh"],
-      "url": "https://raw.githubusercontent.com/zaberhossen/memora-community-hub/main/lessons/gk-bangladesh-liberation-war.json"
     }
   ]
 }

@@ -1,0 +1,48 @@
+name: Validate decks
+
+# Every deck here is served straight from the main branch, so a merged mistake
+# is live immediately. This is the only gate before that.
+on:
+  pull_request:
+    paths:
+      - 'catalog.json'
+      - 'lessons/**'
+      - 'scripts/**'
+      - '.github/workflows/validate.yml'
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # The validator has no dependencies, so there is nothing to install and
+      # no lockfile to cache.
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - run: node scripts/validate.mjs
+
+      # Every lesson url must actually serve. Only meaningful on main, where the
+      # urls point at commits that exist; on a pull request the files are still
+      # on the contributor's fork.
+      - name: Check lesson urls resolve
+        if: github.event_name != 'pull_request'
+        run: |
+          rc=0
+          for url in $(node -e "
+            const c = require('./catalog.json');
+            for (const l of c.lessons) if (typeof l.url === 'string') console.log(l.url);
+          "); do
+            code=$(curl -sS -o /dev/null -w '%{http_code}' --retry 2 --max-time 20 "$url" || echo 000)
+            echo "$code  $url"
+            [ "$code" = "200" ] || rc=1
+          done
+          exit $rc

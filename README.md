@@ -17,6 +17,10 @@ memora-community-hub/
 │   ├── chemistry-mole-concept.json
 │   ├── biology-cell-division.json
 │   └── gk-bangladesh-liberation-war.json
+├── scripts/
+│   └── validate.mjs  # PR-এ যা চেক হয়, লোকালেও চালানো যায়
+├── .github/workflows/
+│   └── validate.yml  # প্রতি PR-এ ভ্যালিডেটর চালায়
 └── README.md
 ```
 
@@ -109,27 +113,39 @@ NEXT_PUBLIC_CATALOG_URL=https://raw.githubusercontent.com/zaberhossen/memora-com
 1. রিপোটা **fork** করুন, তারপর একটা ব্রাঞ্চ কাটুন — `add-hsc-chemistry-organic`
 2. `lessons/`-এ নতুন ফাইল বানান। নাম দিন `<subject>-<topic>.json`, ছোট হাতের
    অক্ষরে — `hsc-bangla-02.json`, `physics-thermodynamics.json`
-3. `catalog.json`-এ এন্ট্রি যোগ করুন। লিস্টটা `lessonId` অনুযায়ী সাজানো থাকে,
-   নিজের এন্ট্রি সেই ক্রমেই বসান, আর `updatedAt` আজকের তারিখে বদলান
-4. JSON ভ্যালিড কি না দেখে নিন:
+3. `catalog.json`-এ এন্ট্রি যোগ করুন। লিস্টটা `lessonId` অনুযায়ী বর্ণক্রমে
+   সাজানো — নিজের এন্ট্রি সেই ক্রমেই বসান (দুটো PR তখন আলাদা জায়গায় বসে,
+   কনফ্লিক্ট হয় না), আর `updatedAt` আজকের তারিখে বদলান
+4. ভ্যালিডেটর চালান — PR-এ ঠিক এটাই চলে:
 
    ```bash
-   node -e "for (const f of require('fs').readdirSync('lessons')) JSON.parse(require('fs').readFileSync('lessons/'+f)); JSON.parse(require('fs').readFileSync('catalog.json')); console.log('valid')"
+   node scripts/validate.mjs
    ```
+
+   কোনো ডিপেন্ডেন্সি নেই, `npm install` লাগে না। **error** থাকলে PR ফেল করবে;
+   **warning** ফেল করায় না, কিন্তু সাধারণত ওগুলোও ঠিক করার মতো। warning-ও
+   ফেল করাতে চাইলে `--strict` দিন।
 
 5. পুল রিকোয়েস্ট খুলুন। PR-এর বর্ণনায় লিখুন কোন ক্লাস/পরীক্ষার জন্য ডেকটা এবং
    কনটেন্ট কোথা থেকে এসেছে
 
 ### PR পাঠানোর আগে চেকলিস্ট
 
-- [ ] ফাইলটা ভ্যালিড JSON, UTF-8, শেষে একটা নিউলাইন
-- [ ] `lessonId` রিপোতে ইউনিক এবং ফাইলের নামের সাথে মেলে
-- [ ] এক লেসনের ভেতর দুটো কার্ডের `id` এক নয়
-- [ ] `catalog.json`-এর `cardCount` কার্ড সংখ্যার সমান
-- [ ] `url` কাজ করে (`curl -I <url>` → `200`)
+`node scripts/validate.mjs` যেগুলো নিজেই ধরে ফেলে:
+
+- ফাইলটা ভ্যালিড JSON, UTF-8, শেষে একটা নিউলাইন
+- `lessonId` রিপোতে ইউনিক এবং ফাইলের নামের সাথে মেলে
+- এক লেসনের ভেতর দুটো কার্ডের `id` এক নয়, আর প্রতিটা কার্ডে `id` আছে
+- `catalog.json`-এর `cardCount`, `title`, `subject`, `author` লেসন ফাইলের সাথে মেলে
+- `url` অ্যাবসোলিউট raw লিংক এবং ফাইলটা রিপোতে আছে
+- `media` লিংকগুলো `https://`, ফাইল ৮ MB-র নিচে
+- ক্যাটালগ `lessonId` অনুযায়ী সাজানো, ট্যাগে কেস-ভিন্নতা নেই
+
+যেগুলো মেশিন ধরতে পারে না, আপনাকেই দেখতে হবে:
+
 - [ ] উত্তর ভুল নেই — বোর্ড বই বা নির্ভরযোগ্য সোর্সে মিলিয়ে দেখা হয়েছে
-- [ ] `media` লিংকগুলো `https://`, আর ফাইল ৮ MB-র নিচে
 - [ ] কপিরাইটেড বই থেকে হুবহু কপি করা হয়নি — নিজের ভাষায় লেখা
+- [ ] আপডেট হলে পুরনো কার্ডের `id` অপরিবর্তিত আছে
 
 ## কার্ড লেখার কিছু নিয়ম
 
@@ -142,9 +158,15 @@ NEXT_PUBLIC_CATALOG_URL=https://raw.githubusercontent.com/zaberhossen/memora-com
 
 ## রিভিউ প্রসেস
 
-PR এলে দেখা হয় — JSON ভ্যালিড কি না, ক্যাটালগ এন্ট্রি ফাইলের সাথে মেলে কি না,
-আর কার্ডের উত্তরগুলো ঠিক আছে কি না। ছোটখাটো ঠিকঠাক (ট্যাগ, বানান) মেইনটেইনার
-নিজেই করে দিতে পারেন; কনটেন্ট নিয়ে প্রশ্ন থাকলে PR-এ কমেন্ট করা হবে।
+PR খুললেই **Validate decks** ওয়ার্কফ্লো চলে (`.github/workflows/validate.yml`) —
+ফরম্যাট আর ক্যাটালগ মেলানোর কাজটা ওটাই করে — সমস্যা থাকলে কোন ফাইলে কী, সেটা
+PR-এর "Files changed"-এ অ্যানোটেশন হিসেবে দেখায়। চেকটা লাল থাকলে রিভিউয়ের
+অপেক্ষা না করে আগে সেটা সবুজ করুন। (প্রথমবার কনট্রিবিউট করলে মেইনটেইনার
+ওয়ার্কফ্লোটা চালানোর অনুমতি দেওয়ার পর চেক শুরু হবে — GitHub-এর নিয়ম।)
+
+মেইনটেইনার তারপর দেখেন যেটা মেশিন দেখতে পারে না — কার্ডের উত্তর ঠিক কি না, ডেকটা
+কোন পরীক্ষার কাজে লাগবে। ছোটখাটো ঠিকঠাক (ট্যাগ, বানান) তিনি নিজেই করে দিতে পারেন;
+কনটেন্ট নিয়ে প্রশ্ন থাকলে PR-এ কমেন্ট করা হবে।
 
 মার্জ হওয়ার সাথে সাথেই ডেকটা লাইভ — raw ফাইল সরাসরি সার্ভ হয়, কোনো ডিপ্লয় নেই।
 অ্যাপে পুরনো লিস্ট দেখলে Explore-এ pull-to-refresh করুন।
@@ -177,7 +199,8 @@ NEXT_PUBLIC_CATALOG_URL=https://raw.githubusercontent.com/zaberhossen/memora-com
 To contribute: fork, add `lessons/<subject>-<topic>.json` (required fields
 `lessonId`, `title`, `cards[].id`, `cards[].front`, `cards[].back`), add the
 matching entry to `catalog.json` with an accurate `cardCount` and an absolute
-raw `url`, verify the JSON parses, and open a PR. The field tables and the
+raw `url`, run `node scripts/validate.mjs` (no dependencies, and the same
+command CI runs), and open a PR. The field tables and the
 pre-PR checklist above apply as written — every key is in English.
 
 Two things that bite people: keep card `id`s stable across updates (a new `id`
