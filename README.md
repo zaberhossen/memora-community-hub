@@ -1,6 +1,6 @@
 # Memora Community Hub
 
-[Memora](https://github.com/zaberhossen/Memora)-এর কমিউনিটি লেসন রিপোজিটরি। এখানে
+[Memora](https://memora-card.vercel.app)-এর কমিউনিটি লেসন রিপোজিটরি। এখানে
 যে JSON ফাইলগুলো আছে, সেগুলোই অ্যাপের **Explore** পেজে ডেক হিসেবে দেখা যায় —
 একবার ডাউনলোড করলে ইন্টারনেট ছাড়াই পড়া যায়, শিডিউলিং করে FSRS।
 
@@ -185,7 +185,7 @@ PR-এর "Files changed"-এ অ্যানোটেশন হিসেবে 
 
 ## English
 
-Community lesson decks for [Memora](https://github.com/zaberhossen/Memora), an
+Community lesson decks for [Memora](https://memora-card.vercel.app), an
 offline-first flashcard PWA. `catalog.json` is the index the app's Explore page
 reads; `lessons/*.json` are the decks themselves. There is no backend —
 publishing a deck is a pull request.
