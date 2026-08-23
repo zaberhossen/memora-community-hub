@@ -3,6 +3,16 @@
   "updatedAt": "2026-08-22",
   "lessons": [
     {
+      "lessonId": "quran-50-common-words",
+      "title": "কুরআনের সবচেয়ে কমন ৫০টি শব্দ",
+      "subject": "Arabic",
+      "author": "Admin",
+      "cardCount": 50,
+      "description": "আল কুরআনে সবচেয়ে বেশি ব্যবহৃত বা কমন ৫০টি শব্দের তালিকা নিচে অর্থসহ। এই শব্দগুলো কুরআনে বারবার এসেছে এবং এগুলো জানলে কুরআনের অর্থ বোঝা অনেক সহজ হয়।",
+      "tags": ["HSC", "Admission", "Chapter-2"],
+      "url": "https://gist.githubusercontent.com/zaberhossen/48d545a8430cf6c345a6ba5420f5200b/raw/289841121a83e321088b3e2815d3d1dc5694d2da/quran-50-common-words"
+    },
+    {
       "lessonId": "biology-cell-division",
       "title": "কোষ বিভাজন — মাইটোসিস ও মিয়োসিস",
       "subject": "Biology",
